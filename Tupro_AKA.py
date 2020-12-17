@@ -62,7 +62,7 @@ N = int(input("Jumlah Array: "))
 seed(1)
 angka = []
 for i in range(N):
-    value = randint(0, 1000)
+    value = randint(0, 100)
     angka.append(value) #tangkap random number dalam list
 print("Angka acak adalah sebagai berikut\n : ",angka)
 
