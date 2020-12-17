@@ -1,4 +1,4 @@
-# tubes - Analisis-Kompleksitas-Algoritma
+# Tubes - Analisis-Kompleksitas-Algoritma
 Insertion Sort &amp; Comb Sort
 NIM : 
 - Daniel Septyadi (1301180009)
