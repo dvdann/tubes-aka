@@ -6,8 +6,7 @@ import time
 import more_itertools 
 
 
-# starting time
-start = time.time()
+
 
 #Comb Sort    
 def combsort ( data ):
@@ -31,6 +30,8 @@ def combsort ( data ):
                     sorted = False
                     nilai = list(angka)
                 yield angka
+            # starting time
+            
     except StopIteration:
         pass
     
@@ -61,7 +62,7 @@ N = int(input("Jumlah Array: "))
 seed(1)
 angka = []
 for i in range(N):
-    value = randint(0, 100)
+    value = randint(0, 1000)
     angka.append(value) #tangkap random number dalam list
 print("Angka acak adalah sebagai berikut\n : ",angka)
 
@@ -78,28 +79,30 @@ print("Angka acak adalah sebagai berikut\n : ",angka)
 #    hasil = insertion_sort(angka)
 #    print(hasil)
 
+start_time = time.time()
+time.sleep(1)
 title = "Comb sort"
 hasil = combsort(angka)
-#Visualisasi comb sort
+#Visualisasi
 fig, ax = plt.subplots()
 ax.set_title(title)
 bar_rects = ax.bar(range(len(angka)), angka, align="edge")
 text = ax.text(0.02, 0.95, "", transform=ax.transAxes)
 iteration = [0]
+
 def update_fig(angka, rects, iteration):
     for rect, val in zip(rects, angka):
         rect.set_height(val)
     iteration[0] += 1
     text.set_text("# of operations: {}".format(iteration[0]))   
 anim = animation.FuncAnimation(fig, func=update_fig,fargs=(bar_rects, iteration), frames=hasil,  repeat=False, )
-
-
+plt.show
 
 
 title1 = "Insertion sort"
 hasil1 = insertion_sort(angka)
 print(hasil1)
-#Visualisasi insertion sort
+#Visualisasi
 fig1, ax1 = plt.subplots()
 ax1.set_title(title1)
 bar_rects = ax1.bar(range(len(angka)), angka, align="edge")
@@ -109,14 +112,14 @@ def update_fig1(angka, rects, iteration):
     for rect, val in zip(rects, angka):
         rect.set_height(val)
     iteration[0] += 1
-    text1.set_text("# of operations: {}".format(iteration[0]))   
+    text1.set_text("# of operations: {}".format(iteration[0]))  
+ 
 anim1 = animation.FuncAnimation(fig1, func=update_fig1,fargs=(bar_rects, iteration), frames=hasil1,  repeat=False, )
-
+start_time2 = time.time()
+time.sleep(1)
 plt.show()
 
-time.sleep(1)
 
-end = time.time()
 
 
 #print("Sorting Comb Sort:")
@@ -130,3 +133,5 @@ print("Hasil Akhir Sorting",hasil_akhir)
 #hasil1 = list(hasil1)
 #result = next(more_itertools.islice_extended(hasil1, N-29))
 #print("Hasil: ",result)
+print("Comb Sort %s seconds: " % (time.time() - start_time))
+print("Insertion Sort %s seconds: " % (time.time() - start_time2))
